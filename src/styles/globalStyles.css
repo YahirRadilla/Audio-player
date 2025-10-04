@@ -1,0 +1,125 @@
+.hidden {
+    display: none;
+}
+
+.audio-player {
+    position: fixed;
+    width: 100%;
+    bottom: 20px;
+    left: 0;
+
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.time {
+    margin: 0 15px;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    /* opcional */
+    margin: 0 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress {
+    height: 100%;
+    background-color: rgba(255, 134, 53, 1);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.1s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 150, 53, 1);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar:hover .progress {
+    background-color: rgba(255, 134, 53, 0.8);
+}
+
+
+.volume-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.volume-button {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color .25s;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+.volume-button:hover {
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+
+.volume-bar {
+    width: 8px;
+    height: 80px;
+    top: -75px;
+    left: -22px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+    pointer-events: none;
+}
+
+.volume-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 4px 4px 0 0;
+    transition: height .1s linear;
+}
+
+.volume-container:hover .volume-bar,
+.volume-button:focus+.volume-bar,
+.volume-bar:focus {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
