@@ -3,9 +3,10 @@
 }
 
 .audio-player {
+    background: #121212;
     position: fixed;
     width: 100%;
-    bottom: 20px;
+    bottom: 0;
     left: 0;
 
 }
